@@ -1,3 +1,5 @@
+var chunk = require('lodash.chunk');
+
 var month=[];
 let daysOfMonth;
 
@@ -34,8 +36,8 @@ for (let i=1 ; i <= 12; i++)
 
 
 //Testing
-
-    console.log(month);
+_.chunk(['a', 'b', 'c', 'd'], 2);
+    // _.join(month,'..');
 //End Testing
 
 

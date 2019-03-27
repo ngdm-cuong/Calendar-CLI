@@ -9,6 +9,8 @@
   "author": "Cuong Nguyen",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.11",
+    "lodash.chunk": "^4.2.0",
     "moment-range": "^4.0.2"
   }
 }
