@@ -1,50 +1,89 @@
+
+var join = require('lodash.join');
 var chunk = require('lodash.chunk');
+//Momentrange
+var Moment = require('moment');
+const MomentRange = require('moment-range');
+const moment1 = MomentRange.extendMoment(Moment); // I am using moment1
+num0 = "2017-01-01";
+var num= "2017-01-00";
+// var check = moment('date/utc format');
 
-var month=[];
-let daysOfMonth;
 
+// moment
+var moment = require('moment');
+moment().format();
 
-// Creating an array
-month[0]=0;
 for (let i=1 ; i <= 12; i++)
     {
         if (i==1 || i==3 ||i==5||i==7||i==8||i==10||i==12)
         {
-            month[i]=[];
-            daysOfMonth = 31;
-            // daysOfMonth = 5;
-            monthCreating(i,daysOfMonth);
+           
+            daysOfMonth = 31;            
+            monthCreating(i,daysOfMonth)
+            
 
         }
         else if (i==2)
         {
-            month[i]=[];
-            daysOfMonth = 28;
-            // daysOfMonth = 7;
+       
+            daysOfMonth = 28;          
             monthCreating(i,daysOfMonth);
         }
         else
         {
-            month[i]=[];
+      
             daysOfMonth = 30;
-            // daysOfMonth = 6;
             monthCreating(i,daysOfMonth);
         }
     }//End of loop
 
 
+function  monthCreating(i,daysOfMonth)
 
+// if the month number from 1 to 9 add 0 to become 01 , 02, ...
+{
+    if (i<10)
+    {
+        num= "2017-0"+i.toString()+"-"+daysOfMonth.toString();
+        var start = moment1(num0);
+        var end = moment1(num);
+        var r1 = moment1.range(start, end);
+        var Cronk =Array.from(r1.by('days')).map(m => m.format('DD'));
 
-//Testing
-_.chunk(['a', 'b', 'c', 'd'], 2);
-    // _.join(month,'..');
-//End Testing
+    // const r2 = r1.snapTo('day');
+    // Array.from(r2.by('days')).map(m => m.format('DD')); 
 
+        jnt = join(Cronk);
+        chnk = chunk(Cronk,7);
+        // console.log('num0: '+num0);
+        // console.log('num: '+num);
 
-
-function monthCreating(monthName,daysOfMonth){
-    for (let cnt = 0; cnt<daysOfMonth;cnt++)
-    {        
-        month[monthName][cnt]=cnt+1;
+        var formattedMonth = moment(num).format('MMMM');
+        console.log(formattedMonth);
+        console.log(chnk);
     }
-}//End of MonthCreating
+    else{
+        num= "2017-"+i.toString()+"-"+daysOfMonth.toString();
+        var start = moment1(num0);
+        var end = moment1(num);
+        var r1 = moment1.range(start, end);
+        var Cronk =Array.from(r1.by('days')).map(m => m.format('DD'));
+    
+        chnk = chunk(Cronk,7);
+        jnt = join(chnk,' ');
+
+        // month = check.format(num);
+        // console.log(month);
+        var formattedMonth = moment(num).format('MMMM');
+        console.log(formattedMonth);
+        console.log(chnk);
+    
+        //Testing section
+        // console.log('num0: '+num0);
+        // console.log('num: '+num);
+     
+    }
+
+    num0=num; // make start date = ended date
+}
