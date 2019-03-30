@@ -17,22 +17,17 @@ moment().format();
 for (let i=1 ; i <= 12; i++)
     {
         if (i==1 || i==3 ||i==5||i==7||i==8||i==10||i==12)
-        {
-           
+        {           
             daysOfMonth = 31;            
-            monthCreating(i,daysOfMonth)
-            
-
+            monthCreating(i,daysOfMonth)    
         }
         else if (i==2)
-        {
-       
+        {       
             daysOfMonth = 28;          
             monthCreating(i,daysOfMonth);
         }
         else
-        {
-      
+        {      
             daysOfMonth = 30;
             monthCreating(i,daysOfMonth);
         }
@@ -56,8 +51,8 @@ function  monthCreating(i,daysOfMonth)
 
         jnt = join(Cronk);
         chnk = chunk(Cronk,7);
-        // console.log('num0: '+num0);
-        // console.log('num: '+num);
+         console.log('num0: '+num0);
+         console.log('num: '+num);
 
         var formattedMonth = moment(num).format('MMMM');
         console.log(formattedMonth);
