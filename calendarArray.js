@@ -6,7 +6,8 @@ var chunk = require('lodash.chunk');
 var Moment = require('moment');
 const MomentRange = require('moment-range');
 const moment1 = MomentRange.extendMoment(Moment); // I am using moment1
-num0 = "2017-01-01";
+var num0 = "2017-01-01";
+var numx="";
 var num= "2017-01-00";
 // var check = moment('date/utc format');
 
@@ -47,6 +48,7 @@ function  monthCreating(i,daysOfMonth)
 // if the month number from 1 to 9 add 0 to become 01 , 02, ...
 {
     if (i<10)
+    
     {
         num= "2017-0"+i.toString()+"-"+daysOfMonth.toString();
         var start = moment1(num0);
@@ -67,12 +69,16 @@ function  monthCreating(i,daysOfMonth)
         console.log(formattedMonth); // Print out Month name 
 
         for (j=0 ; j < 5; j++)
-        {
+        {   
             jnt = join(chnk[j],' ');
             console.log(chalk.green(jnt));
-
         }
-        
+
+        // This section is for if the month that just printed is the 9th month  then the next month will be 10 instead of 010
+        if (i==9)
+        num0="2017-"+(i+1).toString()+"-01"; // Set start day of month 
+        else
+        num0="2017-0"+(i+1).toString()+"-01"; // Set start day of month
     }
     else{
         num= "2017-"+i.toString()+"-"+daysOfMonth.toString();
@@ -86,15 +92,26 @@ function  monthCreating(i,daysOfMonth)
 
         var formattedMonth = moment(num).format('MMMM');
         console.log(formattedMonth); // Print out Month name
+
         for (j=0 ; j < 5; j++)
-        {
+        {   
+        // //Birthday Highlight section
+        // if (i.toString() === bday[1])
+        // {
+        //     for (let k=0; k<Cronk.length;k++)
+        //     {
+        //         if(bday[2] == Cronk[k])
+        //         {
+        //             console.log(chalk.bgMagenta(Cronk[k]));
             jnt = join(chnk[j],' ');
             console.log(chalk.green(jnt));
-
         }
-    }
+        // num0=num; // Set start day of month
 
-    num0=num; // make start date = ended date
+        num0="2017-"+(i+1).toString()+"-01"; // Set start day of month
+    }
+    
+      
 }
 
     // //Birthday Highlight section
