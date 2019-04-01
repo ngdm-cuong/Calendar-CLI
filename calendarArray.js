@@ -10,14 +10,16 @@ num0 = "2017-01-01";
 var num= "2017-01-00";
 // var check = moment('date/utc format');
 
-
 // moment
 var moment = require('moment');
 moment().format();
 
 // Birthday 
 const chalk = require('chalk');
-var bday = ["05","30"]; // Birday in form ["MM","DD"]
+var bday = ["10","30"]; // Birday in form ["MM","DD"]
+
+// console.log(bday1);
+
 for (let i=1 ; i <= 12; i++)
     {
 
@@ -52,28 +54,25 @@ function  monthCreating(i,daysOfMonth)
         var r1 = moment1.range(start, end);
         var Cronk =Array.from(r1.by('days')).map(m => m.format('DD'));
 
-                //Birthday Highlight section
-                if ("0"+i.toString()== bday[1])
-                {
-                    for (let k=0; k<=Cronk.length;k++)
-                    {
-                        if(bday[2]== Cronk[k])
-                        console.log(chalk.bgGreen(Cronk[k]));
-                    }
-                        
-                }
-
+            
     // const r2 = r1.snapTo('day');
     // Array.from(r2.by('days')).map(m => m.format('DD')); 
 
-        jnt = join(Cronk);
+       
         chnk = chunk(Cronk,7);
         //  console.log('num0: '+num0);
         //  console.log('num: '+num);
 
         var formattedMonth = moment(num).format('MMMM');
-        console.log(formattedMonth); // Print out Month name
-        console.log(chnk);
+        console.log(formattedMonth); // Print out Month name 
+
+        for (j=0 ; j < 5; j++)
+        {
+            jnt = join(chnk[j],' ');
+            console.log(chalk.green(jnt));
+
+        }
+        
     }
     else{
         num= "2017-"+i.toString()+"-"+daysOfMonth.toString();
@@ -81,33 +80,34 @@ function  monthCreating(i,daysOfMonth)
         var end = moment1(num);
         var r1 = moment1.range(start, end);
         var Cronk =Array.from(r1.by('days')).map(m => m.format('DD'));
-
-                //Birthday Highlight section
-                if (bday[1] ==i.toString())
-                {
-                    for (let k=0; k<=Cronk.length;k++)
-                    {
-                        if(bday[2]== Cronk[k])
-                        console.log(chalk.bgGreen(Cronk[k]));
-                    }
-                        
-                }
     
         chnk = chunk(Cronk,7);
-        jnt = join(chnk,' ');
+        jnt = join(chnk , ' ');
 
-        // month = check.format(num);
-        // console.log(month);
         var formattedMonth = moment(num).format('MMMM');
         console.log(formattedMonth); // Print out Month name
-        console.log(chnk);
-    
-        //Testing section
-        // console.log('num0: '+num0);
-        // console.log('num: '+num);
-     
+        for (j=0 ; j < 5; j++)
+        {
+            jnt = join(chnk[j],' ');
+            console.log(chalk.green(jnt));
+
+        }
     }
 
     num0=num; // make start date = ended date
 }
 
+    // //Birthday Highlight section
+    // if ("0"+i.toString() === bday[1])
+    // {
+    //     for (let k=0; k<Cronk.length;k++)
+    //     {
+    //         if(bday[2] == Cronk[k])
+    //         {
+    //             console.log(chalk.bgMagenta(Cronk[k]));
+    //             console.log('TEST');
+    //         }
+                
+    //     }
+            
+    // }
