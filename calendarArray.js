@@ -73,18 +73,18 @@ function  monthCreating(i,daysOfMonth)
         {   
             
             //Birthday Highlight section
-            if ("0"+i.toString() == m)
-            {
-                for (let k=0; k<5 ; k++)
-                {
-                    if(d == chnk[j][k])
-                    {
-                        console.log(chalk.bgMagenta(chnk[j][k]));
-                    }
+            // if ("0"+i.toString() == m)
+            // {
+            //     for (let k=0; k<5 ; k++)
+            //     {
+            //         if(d == chnk[j][k])
+            //         {
+            //             console.log(chalk.bgMagenta(chnk[j][k]));
+            //         }
                         
-                }
+            //     }
                 
-            }
+            // }
 
             jnt = join(chnk[j],' ');
             console.log(chalk.green(jnt));
