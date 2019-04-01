@@ -7,7 +7,6 @@ var Moment = require('moment');
 const MomentRange = require('moment-range');
 const moment1 = MomentRange.extendMoment(Moment); // I am using moment1
 var num0 = "2017-01-01";
-var numx="";
 var num= "2017-01-00";
 // var check = moment('date/utc format');
 
@@ -17,7 +16,7 @@ moment().format();
 
 // Birthday 
 const chalk = require('chalk');
-var bday = ["10","30"]; // Birday in form ["MM","DD"]
+var bday = ["05","15"]; // Birday in form ["MM","DD"]
 
 // console.log(bday1);
 
@@ -48,7 +47,7 @@ function  monthCreating(i,daysOfMonth)
 // if the month number from 1 to 9 add 0 to become 01 , 02, ...
 {
     if (i<10)
-    
+
     {
         num= "2017-0"+i.toString()+"-"+daysOfMonth.toString();
         var start = moment1(num0);
@@ -68,8 +67,23 @@ function  monthCreating(i,daysOfMonth)
         var formattedMonth = moment(num).format('MMMM');
         console.log(formattedMonth); // Print out Month name 
 
-        for (j=0 ; j < 5; j++)
+        for (j=0 ; j < 5; j++) // Print each row of month
         {   
+            
+            //Birthday Highlight section
+            if ("0"+i.toString() == bday[1])
+            {
+                for (let k=0; k<chnk[j].length ; k++)
+                {
+                    if(bday[2] == chnk[j][k])
+                    {
+                        console.log(chalk.bgMagenta(chnk[j][k]));
+                    }
+                        
+                }
+                
+            }
+
             jnt = join(chnk[j],' ');
             console.log(chalk.green(jnt));
         }
