@@ -16,7 +16,9 @@ moment().format();
 
 // Birthday 
 const chalk = require('chalk');
-var bday = ["05","15"]; // Birday in form ["MM","DD"]
+var bday = ["05","29"];
+var m = "05";
+var d = "29"; // Birday in form ["MM","DD"]
 
 // console.log(bday1);
 
@@ -71,11 +73,11 @@ function  monthCreating(i,daysOfMonth)
         {   
             
             //Birthday Highlight section
-            if ("0"+i.toString() == bday[1])
+            if ("0"+i.toString() == m)
             {
-                for (let k=0; k<chnk[j].length ; k++)
+                for (let k=0; k<5 ; k++)
                 {
-                    if(bday[2] == chnk[j][k])
+                    if(d == chnk[j][k])
                     {
                         console.log(chalk.bgMagenta(chnk[j][k]));
                     }
