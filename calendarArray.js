@@ -16,14 +16,9 @@ moment().format();
 
 // Birthday 
 const chalk = require('chalk');
-<<<<<<< HEAD
-var bday = ["05","15"]; // Birday in form ["MM","DD"]
-var space = 0;
-=======
 var bday = ["05","29"];
 var m = "05";
 var d = "29"; // Birday in form ["MM","DD"]
->>>>>>> ec06acdf8fcd99d6b51027bb742d6f7f78eed3e2
 
 // console.log(bday1);
 
@@ -74,29 +69,10 @@ function  monthCreating(i,daysOfMonth)
         Cronk.unshift('  ');
         
 
-<<<<<<< HEAD
         chnk = chunk(Cronk,7);
         var formattedMonth = moment(num).format('MMMM');
         console.log(chalk.green(formattedMonth)); // Print out Month name 
         console.log('Mo Tu We Th Fi Sa Su');
-=======
-        for (j=0 ; j < 5; j++) // Print each row of month
-        {   
-            
-            //Birthday Highlight section
-            // if ("0"+i.toString() == m)
-            // {
-            //     for (let k=0; k<5 ; k++)
-            //     {
-            //         if(d == chnk[j][k])
-            //         {
-            //             console.log(chalk.bgMagenta(chnk[j][k]));
-            //         }
-                        
-            //     }
-                
-            // }
->>>>>>> ec06acdf8fcd99d6b51027bb742d6f7f78eed3e2
 
         for (j=0 ; j < chnk.length; j++) // Print each row of month
         {               
