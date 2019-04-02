@@ -17,6 +17,7 @@ moment().format();
 // Birthday 
 const chalk = require('chalk');
 var bday = ["05","15"]; // Birday in form ["MM","DD"]
+var space = 0;
 
 // console.log(bday1);
 
@@ -53,41 +54,32 @@ function  monthCreating(i,daysOfMonth)
         var start = moment1(num0);
         var end = moment1(num);
         var r1 = moment1.range(start, end);
-        var Cronk =Array.from(r1.by('days')).map(m => m.format('DD'));
-
-            
+        var Cronk =Array.from(r1.by('days')).map(m => m.format('DD'));         
     // const r2 = r1.snapTo('day');
-    // Array.from(r2.by('days')).map(m => m.format('DD')); 
-
-       
-        chnk = chunk(Cronk,7);
+    // Array.from(r2.by('days')).map(m => m.format('DD'));      
         //  console.log('num0: '+num0);
         //  console.log('num: '+num);
 
+        // get the first day of month at the right day of week
+        
+       
+        
+        for (let a = 0 ; a < space ; a++)
+        Cronk.unshift('  ');
+        
+
+        chnk = chunk(Cronk,7);
         var formattedMonth = moment(num).format('MMMM');
-        console.log(formattedMonth); // Print out Month name 
+        console.log(chalk.green(formattedMonth)); // Print out Month name 
+        console.log('Mo Tu We Th Fi Sa Su');
 
-        for (j=0 ; j < 5; j++) // Print each row of month
-        {   
-            
-            //Birthday Highlight section
-            if ("0"+i.toString() == bday[1])
-            {
-                for (let k=0; k<chnk[j].length ; k++)
-                {
-                    if(bday[2] == chnk[j][k])
-                    {
-                        console.log(chalk.bgMagenta(chnk[j][k]));
-                    }
-                        
-                }
-                
-            }
-
+        for (j=0 ; j < chnk.length; j++) // Print each row of month
+        {               
             jnt = join(chnk[j],' ');
-            console.log(chalk.green(jnt));
+            console.log(chalk.blue(jnt));
         }
 
+        space =(Cronk.length-1)%7+1;
         // This section is for if the month that just printed is the 9th month  then the next month will be 10 instead of 010
         if (i==9)
         num0="2017-"+(i+1).toString()+"-01"; // Set start day of month 
@@ -100,28 +92,28 @@ function  monthCreating(i,daysOfMonth)
         var end = moment1(num);
         var r1 = moment1.range(start, end);
         var Cronk =Array.from(r1.by('days')).map(m => m.format('DD'));
-    
+        // get the first day of month at the right day of week
+
+        for (let a = 0 ; a < space ; a++)
+        Cronk.unshift('  ');
+        
+
+
+
         chnk = chunk(Cronk,7);
-        jnt = join(chnk , ' ');
-
         var formattedMonth = moment(num).format('MMMM');
-        console.log(formattedMonth); // Print out Month name
+        console.log(chalk.green(formattedMonth)); // Print out Month name
+        console.log('Mo Tu We Th Fi Sa Su');
 
-        for (j=0 ; j < 5; j++)
+        for (j=0 ; j < chnk.length; j++)
         {   
-        // //Birthday Highlight section
-        // if (i.toString() === bday[1])
-        // {
-        //     for (let k=0; k<Cronk.length;k++)
-        //     {
-        //         if(bday[2] == Cronk[k])
-        //         {
-        //             console.log(chalk.bgMagenta(Cronk[k]));
             jnt = join(chnk[j],' ');
-            console.log(chalk.green(jnt));
+            console.log(chalk.blue(jnt));
         }
-        // num0=num; // Set start day of month
 
+        
+        // num0=num; // Set start day of month
+        space =(Cronk.length-1)%7+1;
         num0="2017-"+(i+1).toString()+"-01"; // Set start day of month
     }
     
