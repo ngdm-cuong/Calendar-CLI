@@ -8,6 +8,7 @@ const MomentRange = require('moment-range');
 const moment1 = MomentRange.extendMoment(Moment); // I am using moment1
 var num0 = "2017-01-01";
 var num= "2017-01-00";
+var space =0;
 // var check = moment('date/utc format');
 
 // moment
@@ -16,6 +17,7 @@ moment().format();
 
 // Birthday 
 const chalk = require('chalk');
+
 var bday = ["05","29"];
 var m = "05";
 var d = "29"; // Birday in form ["MM","DD"]
