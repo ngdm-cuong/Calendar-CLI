@@ -63,14 +63,9 @@ function  monthCreating(i,daysOfMonth)
         //  console.log('num0: '+num0);
         //  console.log('num: '+num);
 
-        // get the first day of month at the right day of week
-        
-       
-        
+        // get the first day of month at the right day of week 
         for (let a = 0 ; a < space ; a++)
         Cronk.unshift('  ');
-        
-
         chnk = chunk(Cronk,7);
         var formattedMonth = moment(num).format('MMMM');
         console.log(chalk.green(formattedMonth)); // Print out Month name 
@@ -99,10 +94,6 @@ function  monthCreating(i,daysOfMonth)
 
         for (let a = 0 ; a < space ; a++)
         Cronk.unshift('  ');
-        
-
-
-
         chnk = chunk(Cronk,7);
         var formattedMonth = moment(num).format('MMMM');
         console.log(chalk.green(formattedMonth)); // Print out Month name
